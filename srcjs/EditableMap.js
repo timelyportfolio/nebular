@@ -42,4 +42,48 @@ class EditableMap extends React.Component {
   }
 }
 
+export function Example() {
+  const [features, setFeatures] = React.useState({
+    type: 'FeatureCollection',
+    features: [],
+  });
+  const [selectedFeatureIndexes] = React.useState([]);
+  const [mode, setMode] = React.useState(() => ViewMode);
+
+  const layer = new EditableGeoJsonLayer({
+    data: features,
+    mode,
+    selectedFeatureIndexes,
+    onEdit: ({ updatedData }) => {
+      setFeatures(updatedData);
+    },
+  });
+
+  return (
+    <>
+      <DeckGL
+        initialViewState={initialViewState}
+        controller={{
+          doubleClickZoom: false,
+        }}
+        layers={[layer]}
+        getCursor={layer.getCursor.bind(layer)}
+      >
+        <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
+      </DeckGL>
+      <Toolbox
+        mode={mode}
+        features={features}
+        onSetMode={setMode}
+        onImport={(featureCollection) =>
+          setFeatures({
+            ...features,
+            features: [...features.features, ...featureCollection.features],
+          })
+        }
+      />
+    </>
+  );
+}
+
 export default EditableMap;

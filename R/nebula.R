@@ -8,7 +8,7 @@
 nebula <- function(..., width = NULL, height = NULL, elementId = NULL) {
 
   # describe a React component to send to the browser for rendering.
-  component <- reactR::component("EditableMap", list(...))
+  component <- reactR::component("Example", list(...))
 
   # create widget
   htmlwidgets::createWidget(

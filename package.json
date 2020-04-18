@@ -4,9 +4,13 @@
     "@deck.gl/core": "^8.0.6",
     "@deck.gl/layers": "^8.0.6",
     "@deck.gl/mesh-layers": "^8.0.6",
-    "@deck.gl/react": "^8.0.6",
-    "@nebula.gl/layers": "^0.17.7",
-    "@nebula.gl/overlays": "^0.17.7"
+    "@deck.gl/react": "^8.1.1",
+    "@nebula.gl/edit-modes": "^0.18.0",
+    "@nebula.gl/editor": "^0.18.0",
+    "@nebula.gl/layers": "^0.18.0",
+    "@nebula.gl/overlays": "^0.18.0",
+    "react-map-gl": "^5.2.3",
+    "turf": "^3.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
