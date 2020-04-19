@@ -12,10 +12,10 @@ export function Example(props) {
     zoom: 12,
   };
 
-  const [features, setFeatures] = React.useState({
-    type: 'FeatureCollection',
-    features: [],
-  });
+  const [features, setFeatures] = React.useState(
+    props.hasOwnProperty('features') ? props.features : {type: 'FeatureCollection', features: []}
+  );
+
   const [selectedFeatureIndexes] = React.useState([]);
   const [mode, setMode] = React.useState(() => ViewMode);
 
@@ -41,7 +41,9 @@ export function Example(props) {
         style={{overflow: 'hidden'}}
       >
         {props.hasOwnProperty('mapboxApiAccessToken')
-            ? <StaticMap mapboxApiAccessToken = {props.mapboxApiAccessToken} />
+            ? (<StaticMap
+                  mapboxApiAccessToken = {props.mapboxApiAccessToken}
+              />)
             : null
         }
       </DeckGL>

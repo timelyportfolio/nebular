@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-nebula <- function(..., width = NULL, height = NULL, elementId = NULL) {
+nebula <- function(..., width = "100%", height = "100vh", elementId = NULL) {
 
   # describe a React component to send to the browser for rendering.
   component <- reactR::component("Example", list(...))
@@ -17,7 +17,15 @@ nebula <- function(..., width = NULL, height = NULL, elementId = NULL) {
     width = width,
     height = height,
     package = 'nebular',
-    elementId = elementId
+    elementId = elementId #,
+    # # this does not solve the invisible mapbox problem
+    # dependencies = htmltools::htmlDependency(
+    #   name = 'mapbox-gl-css',
+    #   version = '1.9.1',
+    #   src = list(file = system.file("htmlwidgets", package="nebular")),
+    #   stylesheet = 'mapbox-gl.css',
+    #   all_files = FALSE
+    # )
   )
 }
 

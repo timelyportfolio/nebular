@@ -15,3 +15,4 @@ Imports:
     htmltools,
     htmlwidgets,
     reactR
+RoxygenNote: 7.0.2

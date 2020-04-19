@@ -9,8 +9,7 @@
     "@nebula.gl/editor": "^0.18.0",
     "@nebula.gl/layers": "^0.18.0",
     "@nebula.gl/overlays": "^0.18.0",
-    "react-map-gl": "^5.2.3",
-    "turf": "^3.0.14"
+    "react-map-gl": "^5.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
